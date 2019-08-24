@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+                name="dog"
+                type="com.example.dogsapp.model.DogBreed"/>
+        <variable
+                name="listener"
+                type="com.example.dogsapp.view.DogClickListener"/>
+    </data>
+
+    <LinearLayout
+            android:onClick="@{listener.onDogClicked}"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="125dp">
+
+        <TextView
+                android:text="@{String.valueOf(dog.uuid)}"
+                android:id="@+id/dogId"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <ImageView
+                android:imageUrl="@{dog.imageUrl}"
+                android:id="@+id/dogImage"
+                android:padding="4dp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+        <LinearLayout
+                android:gravity="center_vertical"
+                android:padding="4dp"
+                android:orientation="vertical"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:id="@+id/name"
+                    android:text="@{dog.dogBreed}"
+                    style="@style/Title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/lifeSpan"
+                    style="@style/Text"
+                    android:text="@{dog.lifeSpan}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

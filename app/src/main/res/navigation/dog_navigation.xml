@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/dog_navigation"
+            app:startDestination="@id/dogsFragment">
+
+    <fragment
+            android:id="@+id/dogsFragment"
+            android:name="com.example.dogsapp.view.fragment.DogsFragment"
+            android:label="DogsFragment">
+        <action
+                android:id="@+id/actionDetailFragment"
+                app:destination="@id/detailFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"/>
+        <action
+                android:id="@+id/action_dogsFragment_to_settingFragment"
+                app:destination="@id/settingFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/detailFragment"
+            android:name="com.example.dogsapp.view.fragment.DetailFragment"
+            android:label="DetailFragment">
+        <action
+                android:id="@+id/actionDogsFragment"
+                app:destination="@id/dogsFragment"
+                app:enterAnim="@anim/nav_default_pop_enter_anim"
+                app:exitAnim="@anim/nav_default_pop_exit_anim"/>
+        <argument
+                android:name="dogUuid"
+                android:defaultValue="0"
+                app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.dogsapp.view.fragment.SettingFragment"
+        android:label="SettingFragment">
+        <action
+            android:id="@+id/actionToDogsFragment"
+            app:destination="@id/dogsFragment"/>
+
+    </fragment>
+
+
+
+</navigation>
